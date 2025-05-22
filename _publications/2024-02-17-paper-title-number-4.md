@@ -4,7 +4,7 @@ collection: publications
 category: journals
 permalink: 'To be determined'
 excerpt: 'This paper is currently in preparation.'
-date: 'To be determined'
+date:
 venue: 'To be determined'
 paperurl: ''
 ---
