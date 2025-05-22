@@ -34,11 +34,11 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL
-  #googlescholar    : # URL
+  googlescholar    : # URL
   impactstory      : # URL
-  #orcid            : # URL
+  orcid            : # URL
   semantic         : # URL
-  #pubmed           : # URL
+  pubmed           : # URL
   researchgate     : # URL
   scopus           : # URL
 
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  #bluesky          : # Username
+  bluesky          : # Username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
