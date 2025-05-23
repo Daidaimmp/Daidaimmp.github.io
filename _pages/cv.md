@@ -15,11 +15,18 @@ Education
 
 Research experience
 ======
-* Spring 2024 - Fall 2025 : Research Assistant
+* Summer 2024 - Summer 2025 : Research Assistant
   * Beijing Normal University
-  * Duties include:
   * Supervisor: Associate Professor Yu Liu ([https://www.wuyichen.org/ecslab-en](https://www.wuyichen.org/ecslab-en))
-  
+  * Duties include:
+  * Output
+
+* Fall 2024 - Spring 2025 : Research Assistant
+  * Beijing Normal University
+  * Supervisor: Associate Professor Yu Liu ([https://www.wuyichen.org/ecslab-en](https://www.wuyichen.org/ecslab-en))
+  * Duties include:
+  * Output:
+
 Skills
 ======
 
