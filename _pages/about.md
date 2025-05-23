@@ -11,11 +11,10 @@ I am currently a second-year undergraduate student at the School of Physics and 
 
 I have a deep interest in nonlinear science. My current research interests include:
 
-1. The fundamental nature of chaotic attractors  
-2. The intersection between dynamical systems and fractal geometry, especially inspired by the work of Michael Hochman  
-3. The statistical patterns in natural language texts and biological sequences
+1. The fundamental nature of hidden attractors.
+2. The intersection between dynamical systems and fractal geometry, with a particular appreciation for the work of Professor Michael Hochman. 
+3. The statistical patterns in natural language texts and biological sequences.
 
-I am passionate about exploring the underlying structures that govern complexity across physical and informational systems.
 
 <!--
 A data-driven personal website
