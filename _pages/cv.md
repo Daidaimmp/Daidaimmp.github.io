@@ -35,4 +35,4 @@ Talks
   
 Service
 ======
-2024: Served in the Admissions Office of Sun Yat-sen University, participating in student recruitment activities in Shanxi Province
+* 2024: Served in the Admissions Office of Sun Yat-sen University, participating in student recruitment activities in Shanxi Province
