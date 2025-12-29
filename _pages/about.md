@@ -7,13 +7,17 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a second-year undergraduate student at the School of Physics and Astronomy, Sun Yat-sen University, majoring in Physics.
+I am a junior Physics major at the School of Physics and Astronomy, Sun Yat-sen University.
 
-I have a deep interest in nonlinear science. My current research interests include:
+I have a deep interest in nonlinear science. Specifically, my research focuses on both the theory and applications of nonlinear dynamics and complex systems.
 
-1. The fundamental nature of hidden attractors.
-2. The intersection between dynamical systems and fractal geometry, with a particular appreciation for the work of Professor Michael Hochman. 
-3. The statistical patterns in natural language texts and biological sequences.
+Current research interests include:
+
+The fundamental nature of hidden attractors: Exploring the dynamical properties and localization of attractors with non-associated equilibria.
+
+Pattern formation and spontaneous symmetry breaking: Investigating the mechanisms of symmetry breaking and the specific parameter regimes that trigger these transitions.
+
+Statistical patterns in complex sequences: Analyzing the statistical regularities and linguistic/biological structures in natural language texts and biological sequences.
 
 
 <!--
