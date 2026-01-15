@@ -3873,19 +3873,22 @@ input, select, textarea {
 
 /* Intro */
 
-	#intro {
-  /* 关键：用你的背景图 + 一层暗色遮罩 */
-  background-image:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url("images/bg.png");
+		#intro {
+  /* 用你自己的图（用绝对路径，避免相对路径踩坑） */
+  background-image: url("/images/bg.png") !important;
 
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* 推荐的背景图显示方式 */
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 
-  /* 可选：桌面端保留 fixed，移动端一般会自动变 scroll（你下面已有 media 处理） */
+  /* 关键：干掉 style1 给的紫色底 */
+  background-color: transparent !important;
+
+  /* 如果你不需要“跟随滚动固定”，可以删掉；要保留也行 */
   background-attachment: fixed;
 }
+
 
 
 		#intro p {
@@ -3915,3 +3918,4 @@ input, select, textarea {
 			}
 
 		}
+
