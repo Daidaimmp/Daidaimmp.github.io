@@ -4,6 +4,7 @@
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 html, body, div, span, applet, object,
@@ -3873,12 +3874,19 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		background-attachment: fixed;
-		background-image: url("images/intro.svg");
-		background-position: top right;
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-	}
+  /* 关键：用你的背景图 + 一层暗色遮罩 */
+  background-image:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("images/bg.png");
+
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* 可选：桌面端保留 fixed，移动端一般会自动变 scroll（你下面已有 media 处理） */
+  background-attachment: fixed;
+}
+
 
 		#intro p {
 			font-size: 1.25em;
