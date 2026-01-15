@@ -3873,7 +3873,7 @@ input, select, textarea {
 
 /* Intro */
 	#intro {
-  background-image: url("/images/mybg.jpg");
+  background-image: url("/images/bbgg.png");
   background-repeat: no-repeat;
   background-position: center center; /* 可改成 center top / 50% 30% 等 */
   background-size: cover;             /* 关键：铺满 */
@@ -3907,6 +3907,7 @@ input, select, textarea {
 			}
 
 		}
+
 
 
 
