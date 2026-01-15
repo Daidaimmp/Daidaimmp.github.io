@@ -274,4 +274,23 @@
   width: 60%;
 }
 
+/* ===== Sidebar 字体增强 ===== */
+#sidebar nav ul li a {
+  font-size: 0.95rem;                    /* 稍微放大 */
+  font-weight: 600;                      /* 变粗 */
+  color: rgba(255, 255, 255, 0.88);      /* 更亮 */
+  letter-spacing: 0.15em;                /* 保留导航风格，但别太夸张 */
+}
+
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a.active {
+  color: #ffffff;
+}
+
+/* 横线也加强可见性 */
+#sidebar nav ul:before {
+  background-color: rgba(255, 255, 255, 0.20);
+  height: 2px;
+}
+
 
