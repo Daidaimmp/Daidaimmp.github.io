@@ -193,19 +193,6 @@
   }
 }
 
-/* ===== Layout: 调整侧边栏宽度，让内容区更大 ===== */
-@media screen and (min-width: 981px) {
-
-  /* 侧边栏变窄一点 */
-  #sidebar {
-    width: 210px;            /* 可以改成 190~220 之间，看自己喜好 */
-  }
-
-  /* 主内容区域的左侧留白跟着变窄 */
-  #wrapper {
-    padding-left: 210px;
-  }
-}
 
 /* ===== Typography: 提高侧边栏文字可读性 ===== */
 
@@ -291,17 +278,5 @@
 #sidebar nav ul:before {
   background-color: rgba(255, 255, 255, 0.20);
   height: 2px;
-}
-
-/* ===== 统一页面底色，消灭那条紫色竖条 ===== */
-
-/* 整个页面的默认底色 */
-body {
-  background-color: #050810;   /* 或 #0B1020，跟你的背景图靠近 */
-}
-
-/* #wrapper 的 padding 区域（就是侧边栏右边那一条） */
-#wrapper {
-  background-color: #050810;   /* 一定要和上面保持一致 */
 }
 
