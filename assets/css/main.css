@@ -3872,24 +3872,13 @@ input, select, textarea {
 		}
 
 /* Intro */
-
-		#intro {
-  /* 用你自己的图（用绝对路径，避免相对路径踩坑） */
-  background-image: url("/images/bg.png") !important;
-
-  /* 推荐的背景图显示方式 */
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-
-  /* 关键：干掉 style1 给的紫色底 */
-  background-color: transparent !important;
-
-  /* 如果你不需要“跟随滚动固定”，可以删掉；要保留也行 */
-  background-attachment: fixed;
+	#intro {
+  background-image: url("/images/bg.png");
+  background-repeat: no-repeat;
+  background-position: center center; /* 可改成 center top / 50% 30% 等 */
+  background-size: cover;             /* 关键：铺满 */
+  background-color: #000;
 }
-
-
 
 		#intro p {
 			font-size: 1.25em;
@@ -3918,4 +3907,5 @@ input, select, textarea {
 			}
 
 		}
+
 
