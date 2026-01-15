@@ -193,3 +193,65 @@
   }
 }
 
+/* ===== Layout: 调整侧边栏宽度，让内容区更大 ===== */
+@media screen and (min-width: 981px) {
+
+  /* 侧边栏变窄一点 */
+  #sidebar {
+    width: 210px;            /* 可以改成 190~220 之间，看自己喜好 */
+  }
+
+  /* 主内容区域的左侧留白跟着变窄 */
+  #wrapper {
+    padding-left: 210px;
+  }
+}
+
+/* ===== Typography: 提高侧边栏文字可读性 ===== */
+
+/* 整体稍微放大一点字号 */
+#sidebar .inner {
+  font-size: 0.9rem;
+}
+
+/* 菜单项：Home / Research / About / Contact */
+#sidebar nav ul li a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;                /* 保留一点导航的感觉 */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);      /* 比默认更亮一些 */
+}
+
+/* hover 和当前激活项：更亮一点 */
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a.active {
+  color: #ffffff;
+}
+
+/* 那条细横线稍微亮一点、粗一点 */
+#sidebar nav ul:before {
+  background-color: rgba(255, 255, 255, 0.16);
+  height: 2px;
+}
+
+/* ===== Sidebar Background: 更靠近背景图的感觉 ===== */
+#sidebar {
+  background: radial-gradient(circle at top left,
+              #101629 0%,
+              #060913 60%,
+              #050810 100%);
+  box-shadow: 2px 0 26px rgba(0, 0, 0, 0.55); /* 和右边内容区稍微分开一点 */
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ===== Optional: 降低默认存在感 ===== */
+#sidebar {
+  opacity: 0.88;
+  transition: opacity 0.25s ease;
+}
+
+#sidebar:hover {
+  opacity: 1;
+}
+
