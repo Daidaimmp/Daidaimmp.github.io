@@ -11,6 +11,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+    /* 1. 设置背景图 */
+    body {
+        /* 把 'images/your-bg.jpg' 换成你那张复杂的图的文件名 */
+        background-image: url('images/mybg.jpg'); 
+        background-size: cover;       /* 让图片铺满屏幕 */
+        background-position: center;  /* 图片居中 */
+        background-attachment: fixed; /* 背景固定，滚动时不动 */
+    }
+
+    /* 2. 制作“重度暗化”遮罩 (Dark Overlay) */
+    body::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* 核心代码：rgba(0,0,0, 0.9) 代表黑色，透明度 0.9 (90%不透明) */
+        /* 如果觉得太黑，可以把 0.9 改成 0.8；觉得不够黑改成 0.95 */
+        background-color: rgba(0, 0, 0, 0.9); 
+        z-index: 0;           /* 遮罩层级 */
+        pointer-events: none; /* 让鼠标点击能穿透遮罩 */
+    }
+
+    /* 3. 确保文字和侧边栏在遮罩上面 */
+    #wrapper, #sidebar {
+        position: relative;
+        z-index: 1; 
+    }
+</style>
 	</head>
 	<body class="is-preload">
 
@@ -250,6 +282,7 @@ Nonlinear Dynamics | Complex Systems | AI for Science
 	</body>
 
 </html>
+
 
 
 
