@@ -33,51 +33,63 @@
   }
 }
 
-/* ===== 右侧大紫块：做成渐变背景（更有层次） ===== */
-/* 你的研究区大概率是 #one（如果不是，也没事，后面 spotlights 会兜底） */
+/* ===== 1) 背景：更明显的层次（渐变 + 暗角） ===== */
 #one, .wrapper.style2 {
-  background: linear-gradient(135deg, #2a2f72 0%, #3a4aa8 45%, #2c6fb3 100%);
+  background:
+    radial-gradient(1200px 700px at 80% 20%, rgba(255,255,255,0.10), rgba(255,255,255,0) 55%),
+    radial-gradient(900px 600px at 20% 80%, rgba(0,0,0,0.22), rgba(0,0,0,0) 60%),
+    linear-gradient(135deg, #242a6e 0%, #2f4fb4 45%, #2a86c7 100%);
 }
 
-/* ===== 关键：让右侧内容区不再是纯色一整块 ===== */
-.spotlights > section > .content {
-  background: transparent; /* 去掉那种“整块涂色”的感觉 */
-}
-
-/* 给右侧文字区域加“玻璃卡片” */
+/* ===== 2) 卡片：上亮下暗 + 更强对比 + 更“立体”的阴影 ===== */
 .spotlights > section > .content > .inner {
-  background: rgba(12, 18, 40, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 18px;
-  padding: 3.2em 3.2em 2.4em 3.2em;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.22));
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 3.2em 3.2em 2.6em 3.2em;
+
+  /* 阴影做成“方向性”：下面更重 */
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.18),
+    0 35px 90px rgba(0,0,0,0.35);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* 让图片区域也更“高级”：圆角 + 轻微阴影 */
-.spotlights > section > .image {
-  border-radius: 18px 0 0 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+/* 卡片再加一层“内阴影/高光”，会更像真实玻璃 */
+.spotlights > section > .content > .inner:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  pointer-events: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -20px 40px rgba(0,0,0,0.22);
 }
 
-/* 小屏时左右变上下：圆角跟着改 */
-@media screen and (max-width: 980px) {
-  .spotlights > section > .image {
-    border-radius: 18px 18px 0 0;
-  }
-  .spotlights > section > .content > .inner {
-    border-radius: 0 0 18px 18px;
-  }
+/* 让 inner 能放 :before */
+.spotlights > section > .content > .inner {
+  position: relative;
 }
 
-/* ===== 按钮更显眼一点（现在太“淡”） ===== */
-.button, input[type="submit"], button {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.18) !important;
-}
-.button:hover, input[type="submit"]:hover, button:hover {
-  border-color: rgba(255, 255, 255, 0.35) !important;
+/* ===== 3) 按钮：一个“主按钮”更亮，另一个保持次级 ===== */
+.spotlights .actions .button,
+.spotlights .actions input[type="submit"],
+.spotlights .actions button {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.22) !important;
 }
 
+/* 第一个按钮当主按钮（比如 NOTES / PREPRINT） */
+.spotlights .actions li:first-child .button {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.38) !important;
+}
+
+/* hover 更明显 */
+.spotlights .actions .button:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.40) !important;
+}
