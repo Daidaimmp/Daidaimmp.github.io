@@ -255,3 +255,23 @@
   opacity: 1;
 }
 
+/* ===== 修复 spotlights 图片宽度问题 ===== */
+
+.wrapper.style2.spotlights > section > .image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 让 image 区域不会把 wrapper 撑得太宽 */
+.wrapper.style2.spotlights > section > .image {
+  width: 40%;       /* 默认是 50%，太宽了 */
+  min-width: 300px; /* 防止太小 */
+}
+
+/* 右侧内容部分宽度跟着调 */
+.wrapper.style2.spotlights > section > .content {
+  width: 60%;
+}
+
+
