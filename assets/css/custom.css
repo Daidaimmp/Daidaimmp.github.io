@@ -336,40 +336,23 @@
    Intro 用上半部分，About 用下半部分
    ============================== */
 
-/* 先把模板默认的深色渐变盖掉 */
-#intro::before,
-#two::before {
-  background-color: transparent !important;
-}
+/* 修改前（错误）： */
+/* background-image: url("/images/me.jpg") !important; */
 
-/* Home / Intro：用 me.jpg 的上半部分 */
+/* 修改后（正确）： */
+/* 这里的 .. 代表“向上一级”，从 css 文件夹退到 assets，再退到根目录，再进 images */
 #intro::before {
-  background-image: url("/images/me.jpg") !important;
+  background-image: url("../../images/me.jpg") !important; 
   background-size: cover !important;
   background-position: top center !important;
   background-repeat: no-repeat !important;
 }
 
-/* About：用 me.jpg 的下半部分 */
 #two::before {
-  background-image: url("/images/me.jpg") !important;
+  background-image: url("../../images/me.jpg") !important;
   background-size: cover !important;
   background-position: bottom center !important;
   background-repeat: no-repeat !important;
 }
-
-/* 让这两块里的文字都变成浅色，压住暗背景 */
-#intro .inner,
-#two .inner {
-  color: #f5f7ff;
-}
-
-#intro h1,
-#intro p,
-#two h2,
-#two p {
-  color: inherit;
-}
-
 
 
