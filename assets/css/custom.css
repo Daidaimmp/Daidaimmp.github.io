@@ -426,3 +426,48 @@
     display: none !important;
 }
 
+/* =========================================================
+   【终极方案】Home + About Me 共用一张静态大背景 (视差效果)
+   ========================================================= */
+
+/* 1. 核心设置：同时选中 Home 和 About Me */
+#intro, #two {
+    /* --- 设置图片路径 (请确保文件名大小写正确) --- */
+    background-image: url("../../images/bbgg.png") !important;
+
+    /* --- 【关键魔法】 --- */
+    /* fixed = 把图片钉在浏览器窗口背景上，不随内容滚动 */
+    /* 这样两块区域显示的就是同一张图的透视，实现了“无缝拼接” */
+    background-attachment: fixed !important;
+    
+    /* --- 图片显示方式 --- */
+    background-position: center center !important; /* 居中 */
+    background-size: cover !important;             /* 撑满全屏 */
+    background-repeat: no-repeat !important;
+
+    /* --- 强制清除原本的底色 --- */
+    background-color: transparent !important;      /* 去掉 About Me 的紫色 */
+}
+
+/* 2. 清理模板自带的干扰元素 */
+/* Hyperspace 模板给 Home 加了很多层伪元素，必须关掉，否则会有色差 */
+
+#intro::before {
+    display: none !important; /* 关掉模板默认的背景图层 */
+}
+
+#intro::after {
+    display: none !important; /* 关掉模板默认的渐变滤镜 */
+}
+
+#two::before {
+    display: none !important; /* 关掉可能存在的伪元素干扰 */
+}
+
+/* 3. 统一增加“墨镜”遮罩 (为了让白字看得清) */
+/* 使用 box-shadow 模拟一个半透明黑色覆盖层 */
+/* 0.4 代表 40% 的黑色，如果觉得太暗改成 0.2，太亮改成 0.6 */
+#intro, #two {
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4) !important;
+}
+
