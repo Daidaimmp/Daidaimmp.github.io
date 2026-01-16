@@ -280,3 +280,148 @@
   height: 2px;
 }
 
+/* ===== Basins block hover 效果（#one 里的第一个 section） ===== */
+
+/* 覆盖 Hyperspace 的 spotlights 默认 flex 布局 */
+.spotlights .feature-basin {
+  position: relative;
+  display: block !important;
+  min-height: 420px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 图片占满整个 section，当成背景用 */
+.spotlights .feature-basin > .image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 0;
+}
+
+.spotlights .feature-basin > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: brightness(0.70) saturate(1.05);
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+/* 暗色 + 蓝色渐变蒙版，保证文字可见 */
+.spotlights .feature-basin::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 25%,
+    rgba(70, 140, 255, 0.34),
+    rgba(0, 0, 0, 0.82)
+  );
+  pointer-events: none;
+  transition: background 0.6s ease, opacity 0.6s ease;
+  z-index: 0;
+}
+
+/* 文本叠在最上面，左侧排版 */
+.spotlights .feature-basin > .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;   /* 文字靠右一点，更像你截图里那种布局 */
+  background: transparent;
+  box-shadow: none;
+}
+
+.spotlights .feature-basin > .content > .inner {
+  max-width: 520px;
+  background: rgba(10, 30, 80, 0.70);
+  border-radius: 32px;
+  padding: 2.4rem 2.8rem;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: #ffffff;
+  transform: translateY(0);
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease,
+    background 0.6s ease;
+}
+
+.spotlights .feature-basin h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+}
+
+.spotlights .feature-basin p {
+  margin: 0 0 1.8rem 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.spotlights .feature-basin .actions .button {
+  border-radius: 999px;
+  padding: 0.65rem 2.3rem;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== 悬停前后变化（类似你给的 Network Dynamics 前后两张图） ===== */
+
+.spotlights .feature-basin:hover > .image img {
+  transform: scale(1.06);
+  filter: brightness(0.95) contrast(1.15) saturate(1.2);
+}
+
+.spotlights .feature-basin:hover::before {
+  background: radial-gradient(circle at 25% 30%,
+    rgba(110, 180, 255, 0.40),
+    rgba(0, 0, 0, 0.92)
+  );
+}
+
+.spotlights .feature-basin:hover > .content > .inner {
+  transform: translateY(-8px);
+  background: rgba(15, 40, 100, 0.85);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.80),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* 小屏幕适配：卡片宽度放宽一些，padding 小一点 */
+@media screen and (max-width: 768px) {
+  .spotlights .feature-basin {
+    min-height: 360px;
+  }
+
+  .spotlights .feature-basin > .content {
+    padding: 3.2rem 1.8rem;
+    justify-content: center;
+  }
+
+  .spotlights .feature-basin > .content > .inner {
+    max-width: none;
+    padding: 2rem 1.8rem;
+  }
+
+  .spotlights .feature-basin h2 {
+    font-size: 1.8rem;
+  }
+
+  .spotlights .feature-basin p {
+    font-size: 0.95rem;
+  }
+}
+
+
