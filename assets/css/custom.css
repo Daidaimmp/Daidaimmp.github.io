@@ -285,7 +285,7 @@
 
 /* Intro 用 me.png 上半部分 */
 #intro {
-  background-image: url("images/me.png");
+  background-image: url("images/me.jng");
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -295,7 +295,7 @@
 
 /* About 用 me.png 下半部分 */
 #two {
-  background-image: url("images/me.png");
+  background-image: url("images/me.jng");
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
