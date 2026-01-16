@@ -448,3 +448,70 @@
   }
 }
 
+/* =========================
+   Research 横向滚轮：霓虹酷炫版
+   ========================= */
+
+/* Firefox 的基础样式 */
+.research-list {
+  scrollbar-width: thin;  /* thin / auto */
+  scrollbar-color: rgba(120, 190, 255, 0.9) transparent;
+}
+
+/* WebKit: Chrome / Edge / Safari */
+.research-list::-webkit-scrollbar {
+  height: 10px;                      /* 滚轮粗细（横向是高度） */
+}
+
+/* 滚轮轨道 */
+.research-list::-webkit-scrollbar-track {
+  background: radial-gradient(circle at 50% 50%,
+              rgba(10, 20, 40, 0.9),
+              rgba(5, 10, 25, 1));
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 1px rgba(40, 80, 160, 0.4),
+    0 0 18px rgba(0, 0, 0, 0.9) inset;
+}
+
+/* 滑块本体：蓝青渐变 + 外发光 */
+.research-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    rgba(90, 180, 255, 1),
+    rgba(60, 230, 255, 1),
+    rgba(130, 150, 255, 1)
+  );
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 0 12px rgba(80, 200, 255, 0.9),
+    0 0 32px rgba(50, 150, 255, 0.8);
+}
+
+/* hover 时更亮一点，模拟“充能”效果 */
+.research-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(120, 210, 255, 1),
+    rgba(90, 255, 255, 1),
+    rgba(170, 190, 255, 1)
+  );
+  box-shadow:
+    0 0 16px rgba(120, 230, 255, 1),
+    0 0 40px rgba(80, 180, 255, 0.95);
+}
+
+/* 鼠标按住拖动时稍微“压暗”一点 */
+.research-list::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    90deg,
+    rgba(60, 150, 230, 1),
+    rgba(40, 200, 230, 1),
+    rgba(110, 130, 240, 1)
+  );
+  box-shadow:
+    0 0 10px rgba(60, 180, 240, 0.9),
+    0 0 26px rgba(40, 140, 230, 0.9);
+}
+
