@@ -449,69 +449,55 @@
 }
 
 /* =========================
-   Research 横向滚轮：霓虹酷炫版
+   Research 横向滚轮：用涡旋图做滑块
    ========================= */
 
-/* Firefox 的基础样式 */
+/* Firefox 基本配色（Firefox 不支持图片 scrollbar，只能用颜色） */
 .research-list {
-  scrollbar-width: thin;  /* thin / auto */
-  scrollbar-color: rgba(120, 190, 255, 0.9) transparent;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(130, 190, 255, 0.9) transparent;
 }
 
-/* WebKit: Chrome / Edge / Safari */
+/* WebKit：Chrome / Edge / Safari */
 .research-list::-webkit-scrollbar {
-  height: 10px;                      /* 滚轮粗细（横向是高度） */
+  height: 10px;  /* 滚轮粗细，可以 8~12 自己调 */
 }
 
-/* 滚轮轨道 */
+/* 轨道：深蓝 + 微弱内阴影 */
 .research-list::-webkit-scrollbar-track {
   background: radial-gradient(circle at 50% 50%,
-              rgba(10, 20, 40, 0.9),
-              rgba(5, 10, 25, 1));
+              rgba(5, 10, 25, 0.95),
+              rgba(2, 4, 12, 1));
   border-radius: 999px;
-  box-shadow:
-    0 0 0 1px rgba(40, 80, 160, 0.4),
-    0 0 18px rgba(0, 0, 0, 0.9) inset;
+  box-shadow: 0 0 0 1px rgba(40, 80, 160, 0.4) inset;
 }
 
-/* 滑块本体：蓝青渐变 + 外发光 */
+/* 滑块：用你的涡旋图 */
 .research-list::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    90deg,
-    rgba(90, 180, 255, 1),
-    rgba(60, 230, 255, 1),
-    rgba(130, 150, 255, 1)
-  );
+  /* 换成你实际保存的文件名 */
+  background-image: url("../../images/scroll_swirl.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* 横向拉宽一点，让中间亮圈更明显 */
+  background-size: 220% 140%;
+  
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
-    0 0 12px rgba(80, 200, 255, 0.9),
-    0 0 32px rgba(50, 150, 255, 0.8);
-}
-
-/* hover 时更亮一点，模拟“充能”效果 */
-.research-list::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(120, 210, 255, 1),
-    rgba(90, 255, 255, 1),
-    rgba(170, 190, 255, 1)
-  );
-  box-shadow:
-    0 0 16px rgba(120, 230, 255, 1),
-    0 0 40px rgba(80, 180, 255, 0.95);
-}
-
-/* 鼠标按住拖动时稍微“压暗”一点 */
-.research-list::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(
-    90deg,
-    rgba(60, 150, 230, 1),
-    rgba(40, 200, 230, 1),
-    rgba(110, 130, 240, 1)
-  );
-  box-shadow:
-    0 0 10px rgba(60, 180, 240, 0.9),
+    0 0 10px rgba(80, 200, 255, 0.9),
     0 0 26px rgba(40, 140, 230, 0.9);
 }
 
+/* hover：稍微变亮一点 */
+.research-list::-webkit-scrollbar-thumb:hover {
+  box-shadow:
+    0 0 14px rgba(120, 230, 255, 1),
+    0 0 34px rgba(80, 180, 255, 0.95);
+}
+
+/* active：按住时稍微压暗一点，避免太晃眼 */
+.research-list::-webkit-scrollbar-thumb:active {
+  box-shadow:
+    0 0 8px rgba(60, 160, 230, 0.9),
+    0 0 20px rgba(40, 120, 210, 0.9);
+}
