@@ -334,31 +334,71 @@
     display: none !important;
 }
 
-/* ===== Research Section: 一行一个项目 + 右侧大背景 ===== */
+/* ===== Research Section: 上图下项目栏（横向滚动）===== */
 
 .research-section h2 {
   margin-bottom: 1.5rem;
 }
 
+/* 整体上下排列：上是大图，下是项目栏 */
 .research-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-  gap: 2.5rem;
-  align-items: stretch;
-}
-
-/* 左侧项目列表 */
-.research-list {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.8rem;
 }
 
+/* 上面的大图 */
+.research-hero {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  min-height: 340px;
+  max-height: 520px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6);
+}
+
+/* 加一层暗渐变，和整体风格一致 */
+.research-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.05), transparent 55%),
+              linear-gradient(to bottom right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.8));
+}
+
+/* 下面项目栏：横向滚动的卡片轨道 */
+.research-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.4rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.2rem 0.8rem;
+  scroll-snap-type: x mandatory;  /* 滚动时自动对齐卡片，体验更好 */
+}
+
+/* 去掉默认滚动条太丑（桌面端可选） */
+.research-list::-webkit-scrollbar {
+  height: 6px;
+}
+.research-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.research-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+/* 单个项目卡片：最小宽度，方便横向滑动 */
 .project-item {
+  flex: 0 0 min(360px, 80vw);      /* 每个卡片固定宽度，超出部分横向滑动 */
+  scroll-snap-align: start;
   padding: 1.4rem 1.6rem;
-  border-radius: 16px;
-  background: rgba(5, 10, 30, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(5, 10, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 }
@@ -368,57 +408,31 @@
 }
 
 .project-item p {
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.9rem 0;
 }
 
-/* 小按钮略收敛一点 */
+/* 小按钮略收一点 */
 .project-item .actions .button.small {
   font-size: 0.75rem;
   padding: 0.4rem 0.9rem;
 }
 
-/* hover / active 状态 */
+/* hover / active 效果 */
 .project-item:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
 .project-item.active {
   background: radial-gradient(circle at top left,
-              rgba(80, 140, 255, 0.35),
-              rgba(5, 10, 30, 0.9));
-  border-color: rgba(120, 180, 255, 0.65);
+              rgba(80, 140, 255, 0.4),
+              rgba(5, 10, 30, 0.95));
+  border-color: rgba(120, 180, 255, 0.7);
 }
 
-/* 右侧大背景区 */
-.research-hero {
-  position: relative;
-  border-radius: 26px;
-  overflow: hidden;
-  min-height: 360px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6);
-}
-
-/* 盖一层暗一点的渐变，保证文字可读（虽然这里没文字，但风格好看） */
-.research-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.05), transparent 55%),
-              linear-gradient(to bottom right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75));
-}
-
-/* 小屏幕下改成上下布局 */
-@media screen and (max-width: 980px) {
-  .research-layout {
-    grid-template-columns: 1fr;
-  }
+/* 小屏幕下其实还是一样，只是保证大图高度不要太夸张 */
+@media screen and (max-width: 736px) {
   .research-hero {
-    order: -1; /* 背景图在上，项目列表在下 */
     min-height: 260px;
   }
 }
-
