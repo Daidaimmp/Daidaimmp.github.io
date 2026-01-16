@@ -282,35 +282,63 @@
 
 /* ===== About Me 背景：使用自定义图片 ===== */
 
-#two.wrapper.style3 {
+/*#two.wrapper.style3 {
   background-image: url("images/me.png");
-  background-size: cover;           /* 铺满整块区域 */
-  background-position: center;      /* 居中对齐 */
+  background-size: cover;           /* 铺满整块区域 
+  background-position: center;      /* 居中对齐 
   background-repeat: no-repeat;
-  color: #f5f7ff;                   /* 文字改成浅色，以免被背景吃掉 */
-}
+  color: #f5f7ff;                   /* 文字改成浅色，以免被背景吃掉 
+} */
 
 /* 标题、正文等都跟随浅色 */
-#two.wrapper.style3 h2,
+/*#two.wrapper.style3 h2,
 #two.wrapper.style3 p {
   color: inherit;
 }
 
 /* ===== About Me 区域使用 me.png 作为背景 ===== */
 
-#two {
-  /* 背景图路径：对应 images/me.png */
+/*#two {
+  /* 背景图路径：对应 images/me.png 
   background-image: url("images/bg.png");
-  background-size: cover;          /* 铺满整个区域 */
-  background-position: center;     /* 居中 */
+  background-size: cover;          /* 铺满整个区域 
+  background-position: center;     /* 居中 
   background-repeat: no-repeat;
-  background-color: #050814;       /* 万一图片没加载时的兜底色 */
-  color: #f5f7ff;                  /* 文本用浅色 */
-}
+  background-color: #050814;       /* 万一图片没加载时的兜底色 
+  color: #f5f7ff;                  /* 文本用浅色 
+}    */
 
-/* 标题和正文一起变成浅色，避免被背景吃掉 */
+/* 标题和正文一起变成浅色，避免被背景吃掉 
 #two h2,
 #two p {
   color: inherit;
 }
+
+/* Intro 用 me.png 上半部分 */
+#intro {
+  background-image: url("images/me.png");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #050814;
+  color: #f5f7ff;
+}
+
+/* About 用 me.png 下半部分 */
+#two {
+  background-image: url("images/me.png");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-color: #050814;
+  color: #f5f7ff;
+}
+
+#intro h1,
+#intro p,
+#two h2,
+#two p {
+  color: inherit;
+}
+
 
