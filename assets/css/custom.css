@@ -1,36 +1,57 @@
-/* ===== Sidebar 深蓝配色覆盖（覆盖 main.css） ===== */
+/* =========================================================
+   【Sidebar 升级版】赛博学术风：毛玻璃 + 能量边界线
+   ========================================================= */
 
 #sidebar {
-  background: #0b1628; /* 深蓝底 */
+    /* 1. 半透明磨砂底色 (0.6 透明度) */
+    background: rgba(5, 8, 16, 0.6) !important;
+    
+    /* 2. 核心：磨砂玻璃滤镜 (让背后的星空透过来但模糊) */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* 3. 【亮点】右侧能量光刃 (青色渐变线) */
+    border-right: 1px solid transparent;
+    border-image: linear-gradient(to bottom, 
+        rgba(51, 211, 255, 0) 0%,      /* 顶部透明 */
+        rgba(51, 211, 255, 0.8) 50%,   /* 中间最亮 (青色) */
+        rgba(51, 211, 255, 0) 100%     /* 底部透明 */
+    ) 1;
+    
+    /* 4. 去掉原本厚重的阴影 */
+    box-shadow: none !important;
 }
 
-/* Sidebar 里导航字色稍微提亮一点 */
+/* --- 导航链接样式 --- */
 #sidebar nav a {
-  color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.65); /* 默认字色 */
+    transition: all 0.3s ease;
+    border: none !important; /* 去掉模板自带的底边框 */
+    font-weight: 500;
+    letter-spacing: 0.15em;
 }
-#sidebar nav a:hover {
-  color: rgba(255, 255, 255, 0.85);
-}
+
+/* 鼠标悬停 & 激活状态：文字发光 */
+#sidebar nav a:hover,
 #sidebar nav a.active {
-  color: #ffffff;
+    color: #ffffff;
+    /* 只有文字发光，不加背景条，显得更高级 */
+    text-shadow: 0 0 8px rgba(51, 211, 255, 0.8); 
+    padding-left: 5px; /* 稍微产生一点位移，增加交互感 */
 }
 
-/* 导航项底部那条“底线”原来是紫色，换成更冷的蓝灰 */
-#sidebar nav a:before {
-  background: rgba(255, 255, 255, 0.10);
+/* 激活状态：左侧加一个小竖条指示器 (可选) */
+#sidebar nav a.active:before {
+    background: #33d3ff !important;
+    box-shadow: 0 0 8px #33d3ff;
 }
 
-/* 高亮渐变条：从紫粉改成蓝青渐变（更搭你的 intro 图） */
-#sidebar nav a:after {
-  background-image: linear-gradient(to right, #2f7cff, #33d3ff);
-}
-
-/* 小屏幕时顶部栏高亮色（模板会把渐变关掉，用纯色） */
+/* 移动端适配 (窄屏时去掉光刃，恢复默认) */
 @media screen and (max-width: 1280px) {
-  #sidebar nav a:after {
-    background-image: none;
-    background-color: #33d3ff;
-  }
+    #sidebar {
+        border-right: none;
+        background: #0b1628 !important; /* 手机上用实色，性能更好 */
+    }
 }
 
 /* ===== 1) 背景：更明显的层次（渐变 + 暗角） ===== */
@@ -218,26 +239,6 @@
 #sidebar nav ul:before {
   background-color: rgba(255, 255, 255, 0.16);
   height: 2px;
-}
-
-/* ===== Sidebar Background: 更靠近背景图的感觉 ===== */
-#sidebar {
-  background: radial-gradient(circle at top left,
-              #101629 0%,
-              #060913 60%,
-              #050810 100%);
-  box-shadow: 2px 0 26px rgba(0, 0, 0, 0.55); /* 和右边内容区稍微分开一点 */
-  border-right: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-/* ===== Optional: 降低默认存在感 ===== */
-#sidebar {
-  opacity: 0.88;
-  transition: opacity 0.25s ease;
-}
-
-#sidebar:hover {
-  opacity: 1;
 }
 
 /* ===== 修复 spotlights 图片宽度问题 ===== */
