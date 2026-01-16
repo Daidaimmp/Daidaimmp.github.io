@@ -295,3 +295,22 @@
 #two.wrapper.style3 p {
   color: inherit;
 }
+
+/* ===== About Me 区域使用 me.png 作为背景 ===== */
+
+#two {
+  /* 背景图路径：对应 images/me.png */
+  background-image: url("images/me.png");
+  background-size: cover;          /* 铺满整个区域 */
+  background-position: center;     /* 居中 */
+  background-repeat: no-repeat;
+  background-color: #050814;       /* 万一图片没加载时的兜底色 */
+  color: #f5f7ff;                  /* 文本用浅色 */
+}
+
+/* 标题和正文一起变成浅色，避免被背景吃掉 */
+#two h2,
+#two p {
+  color: inherit;
+}
+
