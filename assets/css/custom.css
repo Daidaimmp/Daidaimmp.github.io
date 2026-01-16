@@ -400,7 +400,7 @@
 .spotlights .feature-basin:hover > .content > .inner {
   transform: translateY(-8px);
   /* 卡片变半透明，下面的 basin 图透出来 */
-  background: rgba(10, 30, 80, 0.40);
+  background: rgba(10, 30, 80, 0.01);
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.80),
     0 0 0 1px rgba(255, 255, 255, 0.06);
