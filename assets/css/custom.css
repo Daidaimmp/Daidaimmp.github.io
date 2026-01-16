@@ -283,7 +283,7 @@
    ========================================================= */
 
 /* 1. 核心设置：同时选中 Home 和 About Me */
-#intro, #two {
+#intro, #two , #one{
     /* --- 图片路径 --- */
     /* 请务必确认你的图片是 me.jpg 还是 bbgg.png，这里以 bbgg.png 为例 */
     background-image: url("../../images/me.jpg") !important;
