@@ -348,6 +348,27 @@
 /* ==============================
    About Me (ID: two) 背景强制修改
    ============================== */
+#two {
+    /* 1. 强制去掉默认的紫色背景 */
+    background-color: transparent !important;
+    
+    /* 2. 直接挂载图片（注意路径层级） */
+    /* 这里的路径含义：出css文件夹 -> 出assets文件夹 -> 进images文件夹 */
+    background-image: url("../../images/me.png") !important; 
+    
+    /* 3. 图片显示设置 */
+    background-size: cover !important;       /* 铺满 */
+    background-position: center !important;  /* 居中显示 */
+    background-repeat: no-repeat !important;
+    
+    /* 4. 可选：加一点内阴影让字看清楚（如果图片太亮） */
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3) !important;
+}
+
+/* 既然把图贴在墙上了，就要把可能存在的伪元素干扰关掉 */
+#two::before {
+    display: none !important;
+}
 
 #one {
     /* 1. 强制去掉默认的紫色背景 */
