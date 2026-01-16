@@ -283,7 +283,7 @@
 /* ===== About Me 背景：使用自定义图片 ===== */
 
 #two.wrapper.style3 {
-  background-image: url("images/about_bg.jpg");
+  background-image: url("images/me.png");
   background-size: cover;           /* 铺满整块区域 */
   background-position: center;      /* 居中对齐 */
   background-repeat: no-repeat;
