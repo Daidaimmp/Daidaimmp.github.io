@@ -396,7 +396,7 @@
 #two {
     /* --- 核心路径设置 --- */
     /* 请务必确认你的文件名是 bbgg.png 还是 me.jpg，这里以 bbgg.png 为例 */
-    background-image: url("../../images/bbgg.png") !important; 
+    background-image: url("../../images/me.jpg") !important; 
     
     /* --- 核心融合技术 --- */
     background-attachment: fixed !important;      /* 【关键】把背景图钉在屏幕背后，不随滚动条移动 */
