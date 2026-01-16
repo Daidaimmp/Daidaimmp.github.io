@@ -278,196 +278,42 @@
   height: 2px;
 }
 
-/* =====================================
-   Intro & About：共用一张竖图 images/me.png
-   Intro 显示上半部分，About 显示下半部分
-   ===================================== */
-
-/* Intro 用 me.png 上半部分 */
-/* 标题和正文颜色跟随上面的设置 */
-#intro h1,
-#intro p,
-#two h2,
-#two p {
-  color: inherit;
-}
-
-/* ===== Intro & About 用同一张 me.jpg，上下切开 ===== */
-
-/* 先把模板自带的纯色 / 渐变背景关掉 */
-#intro.wrapper.style1.fullscreen::before,
-#two.wrapper.style3::before {
-  background: none;
-}
-
-/* Intro：用 me.jpg 的上半部分 */
-#intro.wrapper.style1.fullscreen::before {
-  background-image: url("../images/me.jpg");  /* 路径重点：../images/me.jpg */
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  opacity: 1;
-}
-
-/* About Me：用同一张图的下半部分 */
-#two.wrapper.style3::before {
-  background-image: url("../images/me.jpg");  /* 同一张图 */
-  background-size: cover;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  opacity: 1;
-}
-
-/* 让这两块里的文字统一用浅色，别被暗背景吃掉 */
-#intro .inner,
-#two .inner {
-  color: #f5f7ff;
-}
-
-#intro h1,
-#intro p,
-#two h2,
-#two p {
-  color: #f5f7ff;
-}
-
-/* ==============================
-   Intro & About 共用 /images/me.jpg
-   Intro 用上半部分，About 用下半部分
-   ============================== */
-
-/* 修改前（错误）： */
-/* background-image: url("/images/me.jpg") !important; */
-
-/* 修改后（正确）： */
-/* 这里的 .. 代表“向上一级”，从 css 文件夹退到 assets，再退到根目录，再进 images */
-/* ==============================
-   About Me (ID: two) 背景强制修改
-   ============================== */
-
-/* ==============================
-   About Me (ID: two) 背景强制修改
-   ============================== */
-#two {
-    /* 1. 强制去掉默认的紫色背景 */
-    background-color: transparent !important;
-    
-    /* 2. 直接挂载图片（注意路径层级） */
-    /* 这里的路径含义：出css文件夹 -> 出assets文件夹 -> 进images文件夹 */
-    background-image: url("../../images/me.png") !important; 
-    
-    /* 3. 图片显示设置 */
-    background-size: cover !important;       /* 铺满 */
-    background-position: center !important;  /* 居中显示 */
-    background-repeat: no-repeat !important;
-    
-    /* 4. 可选：加一点内阴影让字看清楚（如果图片太亮） */
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3) !important;
-}
-
-/* 既然把图贴在墙上了，就要把可能存在的伪元素干扰关掉 */
-#two::before {
-    display: none !important;
-}
-
-#one {
-    /* 1. 强制去掉默认的紫色背景 */
-    background-color: transparent !important;
-    
-    /* 2. 直接挂载图片（注意路径层级） */
-    /* 这里的路径含义：出css文件夹 -> 出assets文件夹 -> 进images文件夹 */
-    background-image: url("../../images/me.jpg") !important; 
-    
-    /* 3. 图片显示设置 */
-    background-size: cover !important;       /* 铺满 */
-    background-position: center !important;  /* 居中显示 */
-    background-repeat: no-repeat !important;
-    
-    /* 4. 可选：加一点内阴影让字看清楚（如果图片太亮） */
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3) !important;
-}
-
 /* =========================================================
-   终极方案：Home 和 About Me 共用一张“固定”大背景
-   ========================================================= */
-
-/* 1. 同时选中 Home(伪元素) 和 About Me(本体) */
-#intro::before, 
-#two {
-    /* --- 核心路径设置 --- */
-    /* 请务必确认你的文件名是 bbgg.png 还是 me.jpg，这里以 bbgg.png 为例 */
-    background-image: url("../../images/me.jpg") !important; 
-    
-    /* --- 核心融合技术 --- */
-    background-attachment: fixed !important;      /* 【关键】把背景图钉在屏幕背后，不随滚动条移动 */
-    background-position: center center !important;/* 统一居中显示 */
-    background-size: cover !important;            /* 撑满整个屏幕窗口 */
-    background-repeat: no-repeat !important;
-    
-    /* --- 清除干扰 --- */
-    background-color: transparent !important;     /* 确保没有底色挡住 */
-}
-
-/* 2. 专门给 Home 修复遮罩 (Hyperspace 模板特性) */
-/* 因为 Hyperspace 的 #intro 默认有一层很重的叠加色，这里如果你觉得图太暗，可以调透明度 */
-#intro::after {
-    background-color: rgba(0,0,0,0.1) !important; /* 0.1 很淡，如果想黑一点就改大，比如 0.5 */
-}
-
-/* 3. 专门给 About Me 加一层暗色滤镜 */
-/* 否则白字直接显示在复杂的图上可能看不清 */
-#two {
-    /* 这一行是给图片上盖一层半透明黑色 (0.4 代表 40% 黑) */
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4) !important; 
-    
-    /* 确保不再显示伪元素，防止重叠 */
-}
-#two::before {
-    display: none !important;
-}
-
-/* =========================================================
-   【终极方案】Home + About Me 共用一张静态大背景 (视差效果)
+   【最终清洗版】Home + About Me 共用视差背景 (90%大小)
    ========================================================= */
 
 /* 1. 核心设置：同时选中 Home 和 About Me */
 #intro, #two {
-    /* --- 设置图片路径 (请确保文件名大小写正确) --- */
-    background-image: url("../../images/me.jpg") !important;
+    /* --- 图片路径 --- */
+    /* 请务必确认你的图片是 me.jpg 还是 bbgg.png，这里以 bbgg.png 为例 */
+    background-image: url("../../images/bbgg.png") !important;
 
-    /* --- 【关键魔法】 --- */
-    /* fixed = 把图片钉在浏览器窗口背景上，不随内容滚动 */
-    /* 这样两块区域显示的就是同一张图的透视，实现了“无缝拼接” */
-    background-attachment: fixed !important;
+    /* --- 视差核心 --- */
+    background-attachment: fixed !important;      /* 把图片钉在屏幕背后 */
     
-    /* --- 图片显示方式 --- */
-    background-position: center center !important; /* 居中 */
-background-size: cover !important;  /* 让图片在保持比例的前提下完整显示 */          /* 撑满全屏 */
-    background-repeat: no-repeat !important;
+    /* --- 大小控制 --- */
+    /* 90% = 图片缩放到屏幕宽度的 90%，四周留空 */
+    /* 如果觉得太大/太小，可以改这个数字 (例如 85% 或 95%) */
+    background-size: 90% !important;
 
-    /* --- 强制清除原本的底色 --- */
-    background-color: transparent !important;      /* 去掉 About Me 的紫色 */
+    /* --- 位置控制 --- */
+    /* 注意：这里千万不要加 !important，否则你的 JS 脚本无法让图片动起来 */
+    background-position: top center;
+
+    /* --- 背景填充 --- */
+    background-repeat: no-repeat !important;      /* 防止图片重复平铺 */
+    background-color: #050810 !important;         /* 图片周围留出的空隙用深黑蓝填充 */
+
+    /* --- 遮罩 --- */
+    /* 给图片加一层淡淡的黑影，保证白色文字能看清 */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 2. 清理模板自带的干扰元素 */
-/* Hyperspace 模板给 Home 加了很多层伪元素，必须关掉，否则会有色差 */
-
-#intro::before {
-    display: none !important; /* 关掉模板默认的背景图层 */
-}
-
-#intro::after {
-    display: none !important; /* 关掉模板默认的渐变滤镜 */
-}
-
+/* 2. 清理模板自带的干扰元素 (必须有) */
+/* 关掉 Hyperspace 模板默认的渐变层和伪元素，防止出现色差或遮挡 */
+#intro::before, 
+#intro::after, 
 #two::before {
-    display: none !important; /* 关掉可能存在的伪元素干扰 */
-}
-
-/* 3. 统一增加“墨镜”遮罩 (为了让白字看得清) */
-/* 使用 box-shadow 模拟一个半透明黑色覆盖层 */
-/* 0.4 代表 40% 的黑色，如果觉得太暗改成 0.2，太亮改成 0.6 */
-#intro, #two {
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4) !important;
+    display: none !important;
 }
 
