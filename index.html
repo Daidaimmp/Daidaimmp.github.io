@@ -201,19 +201,19 @@ Nonlinear Dynamics | Complex Systems | AI for Science
 			<script src="assets/js/main.js"></script>
 
 <script>
-    // 监听窗口滚动
+    // 监听滚动
     window.addEventListener('scroll', function() {
         var scrolled = window.scrollY; 
-        var speed = 0.3; 
+        var speed = 0.4; // 视差速度
         
-        // 【关键】现在只需要选中 #wrapper 这一个大容器
+        // 【关键】现在的背景在 wrapper 上，所以我们只动 wrapper
         var target = document.querySelector('#wrapper');
         
-        if (target) {
-            // 计算位置
+        if(target) {
+            // 计算位置 (负数代表向上移)
             var newPos = -(scrolled * speed) + 'px';
             
-            // 强制移动背景
+            // 强制推动背景
             target.style.setProperty('background-position', '50% ' + newPos, 'important');
         }
     });
@@ -222,6 +222,7 @@ Nonlinear Dynamics | Complex Systems | AI for Science
 	</body>
 
 </html>
+
 
 
 
