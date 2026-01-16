@@ -290,18 +290,12 @@
    ========================================================= */
 
 /* 1. 在最外层容器铺设大背景 (保证 Home 和 About 无缝衔接) */
+/* 1. 在最外层容器铺设“固定”的大背景 */
 #wrapper {
-    /* 请确认文件名是 bbgg.png 还是 me.jpg */
-    background-image: url("../../images/bbgg.png") !important;
-    
-    /* 核心设置：视差滚动 + 90%大小 */
-    background-attachment: fixed !important;
-    background-position: center center !important; /* 留给 JS 控制 */
-    background-size: 100% !important; 
-    background-repeat: no-repeat !important;
-    background-color: #050810 !important; /* 深色底填充空隙 */
-    
-    /* 统一遮罩 */
+    /* 一行写完：底色 + 图片 + 居中 + cover + 不平铺 + fixed */
+    background: #050810 url("../../images/bbgg.png") center center / cover no-repeat fixed !important;
+
+    /* 如果想保留整体变暗的感觉，可以留这行；不想太暗就删掉 */
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3) !important;
 }
 
