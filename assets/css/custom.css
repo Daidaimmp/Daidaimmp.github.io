@@ -292,44 +292,43 @@
   color: inherit;
 }
 
-/* =====================================
-   Intro & About 共用一张竖图 /images/me.jpg
-   Intro 显示上半部分，About 显示下半部分
-   ===================================== */
+/* ===== Intro & About 用同一张 me.jpg，上下切开 ===== */
 
-/* 去掉 section 自己的背景（交给 :before 控制） */
-#intro,
-#two {
+/* 先把模板自带的纯色 / 渐变背景关掉 */
+#intro.wrapper.style1.fullscreen::before,
+#two.wrapper.style3::before {
   background: none;
+}
+
+/* Intro：用 me.jpg 的上半部分 */
+#intro.wrapper.style1.fullscreen::before {
+  background-image: url("../images/me.jpg");  /* 路径重点：../images/me.jpg */
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+/* About Me：用同一张图的下半部分 */
+#two.wrapper.style3::before {
+  background-image: url("../images/me.jpg");  /* 同一张图 */
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+/* 让这两块里的文字统一用浅色，别被暗背景吃掉 */
+#intro .inner,
+#two .inner {
   color: #f5f7ff;
 }
 
-/* Intro：使用 me.jpg 的上半部分 */
-#intro:before {
-  background-image: url("/images/me.jpg");
-  background-size: cover;
-  background-position: top center;     /* 上半部分 */
-  background-repeat: no-repeat;
-
-  /* 覆盖模板原来的纯色/渐变 */
-  background-color: transparent;
-}
-
-/* About：使用 me.jpg 的下半部分 */
-#two:before {
-  background-image: url("/images/me.jpg");
-  background-size: cover;
-  background-position: bottom center;  /* 下半部分 */
-  background-repeat: no-repeat;
-
-  background-color: transparent;
-}
-
-/* 标题和正文颜色保持浅色，保证可读性 */
 #intro h1,
 #intro p,
 #two h2,
 #two p {
-  color: inherit;
+  color: #f5f7ff;
 }
+
 
