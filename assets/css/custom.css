@@ -334,67 +334,60 @@
     display: none !important;
 }
 
-/* ===== Research Section: 上图下项目栏（横向滚动）===== */
+/* =========================================================
+   Research：上大图，下项目卡（更长、更亮）
+   ========================================================= */
 
 .research-section h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
-/* 整体上下排列：上是大图，下是项目栏 */
+/* 上下布局：先大图，再项目列表 */
 .research-layout {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.6rem;
 }
 
-/* 上面的大图 */
+/* 大图：更长、更亮 */
 .research-hero {
   position: relative;
+  width: 100%;
+  min-height: 460px;              /* 比之前高一截，让图“更长” */
   border-radius: 26px;
   overflow: hidden;
-  min-height: 340px;
-  max-height: 520px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6);
 }
 
-/* 加一层暗渐变，和整体风格一致 */
+/* 遮罩变浅一点，让图更亮 */
 .research-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.05), transparent 55%),
-              linear-gradient(to bottom right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.8));
+  background:
+    radial-gradient(circle at 20% 10%,
+                    rgba(255, 255, 255, 0.08),
+                    transparent 55%),
+    linear-gradient(to bottom right,
+                    rgba(0, 0, 0, 0.30),
+                    rgba(0, 0, 0, 0.55));
+  pointer-events: none;
 }
 
-/* 下面项目栏：横向滚动的卡片轨道 */
+/* 项目栏：在大图下面一行行排开 */
 .research-list {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 1.4rem;
-  overflow-x: auto;
-  padding: 0.4rem 0.2rem 0.8rem;
-  scroll-snap-type: x mandatory;  /* 滚动时自动对齐卡片，体验更好 */
+  flex-wrap: wrap;
+  gap: 1.6rem;
 }
 
-/* 去掉默认滚动条太丑（桌面端可选） */
-.research-list::-webkit-scrollbar {
-  height: 6px;
-}
-.research-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-.research-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-}
-
-/* 单个项目卡片：最小宽度，方便横向滑动 */
+/* 单个项目卡片 */
 .project-item {
-  flex: 0 0 min(360px, 80vw);      /* 每个卡片固定宽度，超出部分横向滑动 */
-  scroll-snap-align: start;
+  flex: 1 1 300px;
+  max-width: 360px;
   padding: 1.4rem 1.6rem;
   border-radius: 18px;
   background: rgba(5, 10, 30, 0.9);
@@ -411,7 +404,7 @@
   margin: 0 0 0.9rem 0;
 }
 
-/* 小按钮略收一点 */
+/* 小按钮 */
 .project-item .actions .button.small {
   font-size: 0.75rem;
   padding: 0.4rem 0.9rem;
@@ -430,9 +423,10 @@
   border-color: rgba(120, 180, 255, 0.7);
 }
 
-/* 小屏幕下其实还是一样，只是保证大图高度不要太夸张 */
+/* 小屏幕上适当压缩一下高度 */
 @media screen and (max-width: 736px) {
   .research-hero {
-    min-height: 260px;
+    min-height: 320px;
   }
 }
+
