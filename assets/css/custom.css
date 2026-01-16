@@ -345,7 +345,11 @@
    About Me (ID: two) 背景强制修改
    ============================== */
 
-#two {
+/* ==============================
+   About Me (ID: two) 背景强制修改
+   ============================== */
+
+#one {
     /* 1. 强制去掉默认的紫色背景 */
     background-color: transparent !important;
     
@@ -363,8 +367,6 @@
 }
 
 /* 既然把图贴在墙上了，就要把可能存在的伪元素干扰关掉 */
-#two::before {
+#one::before {
     display: none !important;
 }
-
-
