@@ -200,9 +200,30 @@ Nonlinear Dynamics | Complex Systems | AI for Science
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+<script>
+    window.addEventListener('scroll', function() {
+        var scrolled = window.scrollY; // 获取滚动距离
+        var speed = 0.2; // 【速度调节】0.1 = 慢速移动, 0.5 = 快速移动
+        
+        // 选中目标元素
+        var targets = document.querySelectorAll('#intro, #two');
+        
+        targets.forEach(function(target) {
+            // 计算新的 Y 轴位置
+            var newPos = -(scrolled * speed) + 'px';
+            
+            // 【关键修改】使用 setProperty 加上 'important' 标志
+            // 这样 JS 就能无视 CSS 里的 !important，强行推动背景
+            // "50%" 代表横向居中， newPos 代表纵向位置
+            target.style.setProperty('background-position', '50% ' + newPos, 'important');
+        });
+    });
+</script>
+		
 	</body>
 
 </html>
+
 
 
 
