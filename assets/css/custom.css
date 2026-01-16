@@ -386,3 +386,42 @@
     /* 4. 可选：加一点内阴影让字看清楚（如果图片太亮） */
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3) !important;
 }
+
+/* =========================================================
+   终极方案：Home 和 About Me 共用一张“固定”大背景
+   ========================================================= */
+
+/* 1. 同时选中 Home(伪元素) 和 About Me(本体) */
+#intro::before, 
+#two {
+    /* --- 核心路径设置 --- */
+    /* 请务必确认你的文件名是 bbgg.png 还是 me.jpg，这里以 bbgg.png 为例 */
+    background-image: url("../../images/bbgg.png") !important; 
+    
+    /* --- 核心融合技术 --- */
+    background-attachment: fixed !important;      /* 【关键】把背景图钉在屏幕背后，不随滚动条移动 */
+    background-position: center center !important;/* 统一居中显示 */
+    background-size: cover !important;            /* 撑满整个屏幕窗口 */
+    background-repeat: no-repeat !important;
+    
+    /* --- 清除干扰 --- */
+    background-color: transparent !important;     /* 确保没有底色挡住 */
+}
+
+/* 2. 专门给 Home 修复遮罩 (Hyperspace 模板特性) */
+/* 因为 Hyperspace 的 #intro 默认有一层很重的叠加色，这里如果你觉得图太暗，可以调透明度 */
+#intro::after {
+    background-color: rgba(0,0,0,0.1) !important; /* 0.1 很淡，如果想黑一点就改大，比如 0.5 */
+}
+
+/* 3. 专门给 About Me 加一层暗色滤镜 */
+/* 否则白字直接显示在复杂的图上可能看不清 */
+#two {
+    /* 这一行是给图片上盖一层半透明黑色 (0.4 代表 40% 黑) */
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4) !important; 
+    
+    /* 确保不再显示伪元素，防止重叠 */
+}
+#two::before {
+    display: none !important;
+}
