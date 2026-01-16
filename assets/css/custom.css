@@ -475,7 +475,7 @@
 /* 滑块：用你的涡旋图 */
 .research-list::-webkit-scrollbar-thumb {
   /* 换成你实际保存的文件名 */
-  background-image: url("../../images/scroll_swirl.jpg");
+  background-image: url("../../images/active_bg.png");
   background-repeat: no-repeat;
   background-position: center center;
   /* 横向拉宽一点，让中间亮圈更明显 */
