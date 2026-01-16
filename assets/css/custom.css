@@ -296,7 +296,7 @@
     
     /* 核心设置：视差滚动 + 90%大小 */
     background-attachment: fixed !important;
-    background-position: center center; /* 留给 JS 控制 */
+    background-position: center center !important; /* 留给 JS 控制 */
     background-size: 100% !important; 
     background-repeat: no-repeat !important;
     background-color: #050810 !important; /* 深色底填充空隙 */
