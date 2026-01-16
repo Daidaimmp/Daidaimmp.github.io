@@ -283,37 +283,52 @@
    ========================================================= */
 
 /* 1. 核心设置：同时选中 Home 和 About Me */
-#intro, #two , #one{
-    /* --- 图片路径 --- */
-    /* 请务必确认你的图片是 me.jpg 还是 bbgg.png，这里以 bbgg.png 为例 */
+/* =========================================================
+   【完美融合版】全局视差背景 (解决分裂问题)
+   ========================================================= */
+
+/* 1. 把背景图移到最外层的 #wrapper 上 */
+/* 这样无论中间有多少缝隙，背景都是连续的一张大图，不会断裂 */
+#wrapper {
+    /* 图片路径 (请确认是 me.jpg 还是 bbgg.png) */
     background-image: url("../../images/me.jpg") !important;
-
-    /* --- 视差核心 --- */
-    background-attachment: fixed !important;      /* 把图片钉在屏幕背后 */
     
-    /* --- 大小控制 --- */
-    /* 90% = 图片缩放到屏幕宽度的 90%，四周留空 */
-    /* 如果觉得太大/太小，可以改这个数字 (例如 85% 或 95%) */
-    background-size: 90% !important;
-
-    /* --- 位置控制 --- */
-    /* 注意：这里千万不要加 !important，否则你的 JS 脚本无法让图片动起来 */
-    background-position: top center;
-
-    /* --- 背景填充 --- */
-    background-repeat: no-repeat !important;      /* 防止图片重复平铺 */
-    background-color: #050810 !important;         /* 图片周围留出的空隙用深黑蓝填充 */
-
-    /* --- 遮罩 --- */
-    /* 给图片加一层淡淡的黑影，保证白色文字能看清 */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2) !important;
+    /* 视差核心 */
+    background-attachment: fixed !important;
+    background-position: top center; /* 留给JS控制位置 */
+    background-size: 90% !important; /* 90% 大小 */
+    background-repeat: no-repeat !important;
+    background-color: #050810 !important; /* 深色底填充空隙 */
+    
+    /* 统一遮罩：为了让文字看清 */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* 2. 清理模板自带的干扰元素 (必须有) */
-/* 关掉 Hyperspace 模板默认的渐变层和伪元素，防止出现色差或遮挡 */
-#intro::before, 
-#intro::after, 
-#two::before {
+/* 2. 把内部所有板块强制变透明 */
+/* 只有变透明了，才能看到底下的 #wrapper 背景图 */
+#intro, #two, #one, #three {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important; /* 去掉之前的遮罩，统一用 wrapper 的 */
+    border: none !important;
+}
+
+/* 3. 特别处理 Research (#one) 内部的卡片 */
+/* Research 里有很多子板块，默认是有颜色的，必须强制透明 */
+.spotlights > section {
+    background: transparent !important;
+    border-color: rgba(255,255,255,0.1) !important; /* 保留一点边框线，更有质感 */
+}
+
+/* 处理卡片里的文字区背景 */
+.spotlights > section > .content {
+    background: transparent !important;
+}
+
+/* 4. 清理所有旧的伪元素干扰 */
+#intro::before, #intro::after, 
+#two::before, #two::after,
+#one::before, #one::after {
     display: none !important;
 }
 
