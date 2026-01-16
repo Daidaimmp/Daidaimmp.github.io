@@ -286,7 +286,7 @@
 #intro, #two {
     /* --- 图片路径 --- */
     /* 请务必确认你的图片是 me.jpg 还是 bbgg.png，这里以 bbgg.png 为例 */
-    background-image: url("../../images/bbgg.png") !important;
+    background-image: url("../../images/me.jpg") !important;
 
     /* --- 视差核心 --- */
     background-attachment: fixed !important;      /* 把图片钉在屏幕背后 */
