@@ -74,7 +74,6 @@
   position: relative;
 }
 
-
 /* ===== 3) 按钮：一个“主按钮”更亮，另一个保持次级 ===== */
 .spotlights .actions .button,
 .spotlights .actions input[type="submit"],
@@ -100,14 +99,14 @@
    Only applies to <section class="spot-square ...">
    ========================= */
 
-.spotlights > section.spot-square{
+.spotlights > section.spot-square {
   position: relative;
   overflow: hidden;
   min-height: 340px;
 }
 
 /* full-row background: blurred, dark */
-.spotlights > section.spot-square::before{
+.spotlights > section.spot-square::before {
   content:"";
   position:absolute; inset:0;
   background-image: var(--bg);
@@ -119,19 +118,19 @@
 }
 
 /* hover => clearer */
-.spotlights > section.spot-square:hover::before{
+.spotlights > section.spot-square:hover::before {
   filter: blur(6px) brightness(0.85) saturate(1.15);
   transform: scale(1.14);
 }
 
 /* Let content stay above background */
-.spotlights > section.spot-square > .content{
+.spotlights > section.spot-square > .content {
   position: relative;
   z-index: 2;
 }
 
 /* We don't want "big glass card" wrapping everything here */
-.spotlights > section.spot-square > .content > .inner{
+.spotlights > section.spot-square > .content > .inner {
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -141,7 +140,7 @@
 }
 
 /* Layout: square thumb + text */
-.spotlights > section.spot-square .hero{
+.spotlights > section.spot-square .hero {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 1.8rem;
@@ -149,7 +148,7 @@
 }
 
 /* Square thumb (keeps full image, not cropped) */
-.spotlights > section.spot-square .thumb{
+.spotlights > section.spot-square .thumb {
   width: 240px;
   aspect-ratio: 1 / 1;
   border-radius: 18px;
@@ -165,34 +164,33 @@
   transition: filter .25s ease, transform .25s ease;
 }
 
-.spotlights > section.spot-square:hover .thumb{
+.spotlights > section.spot-square:hover .thumb {
   filter: blur(0) brightness(1.0);
   transform: scale(1.02);
 }
 
 /* Title only, reduce outside text */
-.spotlights > section.spot-square .meta .subtitle{
+.spotlights > section.spot-square .meta .subtitle {
   opacity: 0.85;
   max-width: 52ch;
 }
 
 /* Make title link look clean */
-.spotlights > section.spot-square .title-link{
+.spotlights > section.spot-square .title-link {
   text-decoration: none;
   border-bottom: 0;
 }
 
-@media (max-width: 980px){
-  .spotlights > section.spot-square .hero{
+@media (max-width: 980px) {
+  .spotlights > section.spot-square .hero {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .spotlights > section.spot-square .thumb{
+  .spotlights > section.spot-square .thumb {
     width: min(280px, 78vw);
     margin: 0 auto;
   }
 }
-
 
 /* ===== Typography: 提高侧边栏文字可读性 ===== */
 
@@ -261,7 +259,7 @@
   width: 60%;
 }
 
-/* ===== Sidebar 字体增强 ===== */
+/* ===== Sidebar 字体增强（覆盖上面的设置） ===== */
 #sidebar nav ul li a {
   font-size: 0.95rem;                    /* 稍微放大 */
   font-weight: 600;                      /* 变粗 */
@@ -280,6 +278,10 @@
   height: 2px;
 }
 
+/* =====================================
+   Intro & About：共用一张竖图 images/me.png
+   Intro 显示上半部分，About 显示下半部分
+   ===================================== */
 
 /* Intro 用 me.png 上半部分 */
 #intro {
@@ -301,33 +303,6 @@
   color: #f5f7ff;
 }
 
-#intro h1,
-#intro p,
-#two h2,
-#two p {
-  color: inherit;
-}
-
-/* ===== Intro (Home)：使用 me.png 的上半部分 ===== */
-#intro {
-  background-image: url("images/me.png");
-  background-size: cover;             /* 图铺满 */
-  background-position: top center;    /* 取图的上半部分 */
-  background-repeat: no-repeat;
-  background-color: #050814;          /* 兜底色，防止图没加载 */
-  color: #f5f7ff;
-}
-
-/* ===== About Me：使用 me.png 的下半部分 ===== */
-#two {
-  background-image: url("images/me.png");
-  background-size: cover;
-  background-position: bottom center; /* 取图的下半部分 */
-  background-repeat: no-repeat;
-  background-color: #050814;
-  color: #f5f7ff;
-}
-
 /* 标题和正文颜色跟随上面的设置 */
 #intro h1,
 #intro p,
@@ -335,4 +310,3 @@
 #two p {
   color: inherit;
 }
-
