@@ -441,7 +441,7 @@
     background-attachment: fixed !important;
     
     /* --- 图片显示方式 --- */
-    background-position: center center !important; /* 居中 */
+    background-position: top center !important; /* 居中 */
 background-size: cover !important;  /* 让图片在保持比例的前提下完整显示 */          /* 撑满全屏 */
     background-repeat: no-repeat !important;
 
