@@ -387,23 +387,32 @@
 
 
 /* 项目栏：在大图下面一行行排开 */
+/* 下面项目栏：只一行，超出部分横向滚动 */
 .research-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;           /* 🚩 不允许换行 */
   gap: 1.6rem;
+  overflow-x: auto;            /* 开启横向滚动条 */
+  overflow-y: hidden;
+  padding-bottom: 0.4rem;      /* 给滚动条留一点空间 */
+  scroll-snap-type: x mandatory;  /* 滚动时卡片自动对齐（可留可删） */
 }
 
-/* 单个项目卡片 */
+/* 单个项目卡片：固定宽度，方便横向滑动 */
 .project-item {
-  flex: 1 1 300px;
-  max-width: 360px;
+  flex: 0 0 340px;             /* 🚩 每个卡片固定宽度，比如 320–360 都可以 */
+  /* max-width: 360px;  这行可以删掉 */
+
   padding: 1.4rem 1.6rem;
   border-radius: 18px;
   background: rgba(5, 10, 30, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease,
+              border-color 0.25s ease,
+              transform 0.2s ease;
 }
+
 
 .project-item h3 {
   margin: 0 0 0.5rem 0;
