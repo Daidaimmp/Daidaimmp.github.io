@@ -331,4 +331,45 @@
   color: #f5f7ff;
 }
 
+/* ==============================
+   Intro & About 共用 /images/me.jpg
+   Intro 用上半部分，About 用下半部分
+   ============================== */
+
+/* 先把模板默认的深色渐变盖掉 */
+#intro::before,
+#two::before {
+  background-color: transparent !important;
+}
+
+/* Home / Intro：用 me.jpg 的上半部分 */
+#intro::before {
+  background-image: url("/images/me.jpg") !important;
+  background-size: cover !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* About：用 me.jpg 的下半部分 */
+#two::before {
+  background-image: url("/images/me.jpg") !important;
+  background-size: cover !important;
+  background-position: bottom center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 让这两块里的文字都变成浅色，压住暗背景 */
+#intro .inner,
+#two .inner {
+  color: #f5f7ff;
+}
+
+#intro h1,
+#intro p,
+#two h2,
+#two p {
+  color: inherit;
+}
+
+
 
