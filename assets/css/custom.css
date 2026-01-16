@@ -279,56 +279,56 @@
 }
 
 /* =========================================================
-   【最终清洗版】Home + About Me 共用视差背景 (90%大小)
+   【特定区域版】只给 Home 和 About 加大背景 (无缝连接)
    ========================================================= */
 
-/* 1. 核心设置：同时选中 Home 和 About Me */
-/* =========================================================
-   【完美融合版】全局视差背景 (解决分裂问题)
-   ========================================================= */
-
-/* 1. 把背景图移到最外层的 #wrapper 上 */
-/* 这样无论中间有多少缝隙，背景都是连续的一张大图，不会断裂 */
+/* 1. 在最外层容器铺设大背景 (保证 Home 和 About 无缝衔接) */
 #wrapper {
-    /* 图片路径 (请确认是 me.jpg 还是 bbgg.png) */
+    /* 请确认文件名是 bbgg.png 还是 me.jpg */
     background-image: url("../../images/bbgg.png") !important;
     
-    /* 视差核心 */
+    /* 核心设置：视差滚动 + 90%大小 */
     background-attachment: fixed !important;
-    background-position: top center; /* 留给JS控制位置 */
-    background-size: 90% !important; /* 90% 大小 */
+    background-position: top center; /* 留给 JS 控制 */
+    background-size: 90% !important; 
     background-repeat: no-repeat !important;
     background-color: #050810 !important; /* 深色底填充空隙 */
     
-    /* 统一遮罩：为了让文字看清 */
+    /* 统一遮罩 */
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* 2. 把内部所有板块强制变透明 */
-/* 只有变透明了，才能看到底下的 #wrapper 背景图 */
-#intro, #two, #one, #three {
+/* 2. 让 Home (#intro) 和 About (#two) 变透明 */
+/* 这样它们就能“透”出底下 wrapper 的大背景 */
+#intro, #two {
     background: transparent !important;
     background-image: none !important;
-    box-shadow: none !important; /* 去掉之前的遮罩，统一用 wrapper 的 */
+    box-shadow: none !important;
     border: none !important;
 }
 
-/* 3. 特别处理 Research (#one) 内部的卡片 */
-/* Research 里有很多子板块，默认是有颜色的，必须强制透明 */
-.spotlights > section {
-    background: transparent !important;
-    border-color: rgba(255,255,255,0.1) !important; /* 保留一点边框线，更有质感 */
+/* 3. 【关键】让 Research (#one) 和 Contact (#three) 恢复纯色背景 */
+/* 这一步是为了“挡住” wrapper 的背景图，只留给你以后再调 */
+#one, #three {
+    /* 使用深蓝/黑色盖住背景图 */
+    background-color: #0b1628 !important; /* 也可以改成 #050810 */
+    background-image: none !important;
+    z-index: 1; /* 确保它们盖在背景之上 */
+    box-shadow: none !important; /* 去掉遮罩 */
 }
 
-/* 处理卡片里的文字区背景 */
-.spotlights > section > .content {
-    background: transparent !important;
+/* 4. 给 About Me (#two) 加磨砂玻璃效果 (可选，为了字看得清) */
+#two .inner {
+    background-color: rgba(12, 18, 30, 0.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 3em !important;
+    border-radius: 10px;
 }
 
-/* 4. 清理所有旧的伪元素干扰 */
+/* 5. 清理所有模板自带的伪元素干扰 */
 #intro::before, #intro::after, 
 #two::before, #two::after,
 #one::before, #one::after {
     display: none !important;
 }
-
