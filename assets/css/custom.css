@@ -1,5 +1,5 @@
 /* =========================================================
-   【Sidebar 最终调整】去光刃 + 图片激活态
+   【Sidebar 最终修正版】去线 + 图片按钮
    ========================================================= */
 
 #sidebar {
@@ -7,55 +7,57 @@
     background: rgba(5, 8, 16, 0.6) !important;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-
-    /* 2. 【修改点】去掉青色渐变光刃，换成一条极淡的分割线或干脆去掉 */
-    border-right: 1px solid rgba(255, 255, 255, 0.05) !important; /* 或者改成 none */
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
     box-shadow: none !important;
 }
 
-/* --- 导航链接样式 --- */
+/* --- 导航链接通用样式 --- */
 #sidebar nav a {
     color: rgba(255, 255, 255, 0.65);
     transition: all 0.3s ease;
     border: none !important;
     font-weight: 500;
     letter-spacing: 0.15em;
-    /* 增加一点内边距和圆角，为激活态做准备 */
-    padding: 0.75em 1.5em;
-    margin: 0.2em 1em; /* 左右留空，让激活态像一个按钮 */
-    border-radius: 8px;
-    position: relative; /* 为了放背景图 */
-    overflow: hidden;   /* 确保背景图不溢出圆角 */
+    padding: 0.75em 1.5em; /* 按钮内边距 */
+    margin: 0.5em 1em;     /* 按钮之间的间距 */
+    border-radius: 8px;    /* 圆角 */
+    position: relative;
+    overflow: hidden;
 }
 
-/* 鼠标悬停 */
+/* --- 【核心修复】强制去掉所有紫线/白线/伪元素 --- */
+/* Hyperspace 模板默认会在 :before 和 :after 加线条，这里统统关掉 */
+#sidebar nav a:before,
+#sidebar nav a:after,
+#sidebar nav > ul > li > a:before,
+#sidebar nav > ul > li > a:after {
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    content: none !important;
+}
+
+/* --- 鼠标悬停 --- */
 #sidebar nav a:hover {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.08); /* 微亮的背景 */
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* --- 【核心修改】激活状态 (Active) 使用图片背景 --- */
+/* --- 激活状态 (Active) --- */
 #sidebar nav a.active {
-    color: #ffffff !important; /* 文字变白 */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* 加点文字阴影，防背景太亮 */
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 
-    /* 设置激活态的背景图 (假设你把图片命名为 active_bg.png 并放在 images 文件夹) */
-    /* 请确保路径正确！ */
+    /* 你的背景图路径 */
     background-image: url("../../images/active_bg.png") !important;
-
-    /* 背景图设置 */
-    background-size: cover !important;      /* 铺满整个按钮区域 */
-    background-position: center !important; /* 居中显示 */
+    
+    background-size: cover !important;
+    background-position: center !important;
     background-repeat: no-repeat !important;
     
-    /* 加一个明亮的边框和发光效果，强调激活感 */
+    /* 边框和发光 */
     border: 1px solid rgba(100, 200, 255, 0.6) !important;
     box-shadow: 0 0 15px rgba(50, 150, 255, 0.4) !important;
-}
-
-/* 【重要】去掉之前那个左侧的小竖条指示器 */
-#sidebar nav a.active:before {
-    display: none !important;
 }
 
 /* ===== 1) 背景：更明显的层次（渐变 + 暗角） ===== */
