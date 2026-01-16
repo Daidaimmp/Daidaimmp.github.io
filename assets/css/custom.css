@@ -319,7 +319,7 @@
 
 /* 4. 给 About Me (#two) 加磨砂玻璃效果 (可选，为了字看得清) */
 #two .inner {
-    background-color: rgba(12, 18, 30, 0.5) !important;
+    background-color: rgba(12, 18, 30, 0.3) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     padding: 3em !important;
