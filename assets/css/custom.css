@@ -300,7 +300,7 @@
 
 #two {
   /* 背景图路径：对应 images/me.png */
-  background-image: url("images/me.png");
+  background-image: url("images/bg.png");
   background-size: cover;          /* 铺满整个区域 */
   background-position: center;     /* 居中 */
   background-repeat: no-repeat;
