@@ -352,8 +352,15 @@
 /* 大图：更长、更亮 */
 .research-hero {
   position: relative;
-  width: 100%;
-  min-height: 460px;              /* 比之前高一截，让图“更长” */
+
+  /* 宽度相关 */
+  width: 100%;          /* 在 .inner 里占满 */
+  max-width: 1150px;    /* 最宽多少：数值越小越“窄”，越大越“宽” */
+  margin: 0 auto;       /* 水平居中 */
+
+  /* 高度相关 */
+  min-height: 480px;    /* 数值越大图越“长”，比如 420 / 480 / 560 */
+
   border-radius: 26px;
   overflow: hidden;
   background-size: cover;
@@ -362,6 +369,7 @@
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6);
 }
 
+
 /* 遮罩变浅一点，让图更亮 */
 .research-hero::before {
   content: "";
@@ -369,13 +377,14 @@
   inset: 0;
   background:
     radial-gradient(circle at 20% 10%,
-                    rgba(255, 255, 255, 0.08),
+                    rgba(255, 255, 255, 0.10),  /* 顶部高光稍微再亮一点 */
                     transparent 55%),
     linear-gradient(to bottom right,
-                    rgba(0, 0, 0, 0.30),
-                    rgba(0, 0, 0, 0.55));
+                    rgba(0, 0, 0, 0.18),      /* 原来 0.30 -> 更亮 */
+                    rgba(0, 0, 0, 0.38));     /* 原来 0.55 -> 更亮 */
   pointer-events: none;
 }
+
 
 /* 项目栏：在大图下面一行行排开 */
 .research-list {
