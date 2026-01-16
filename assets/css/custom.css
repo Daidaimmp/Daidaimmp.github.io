@@ -279,3 +279,19 @@
   background-color: rgba(255, 255, 255, 0.20);
   height: 2px;
 }
+
+/* ===== About Me 背景：使用自定义图片 ===== */
+
+#two.wrapper.style3 {
+  background-image: url("images/about_bg.jpg");
+  background-size: cover;           /* 铺满整块区域 */
+  background-position: center;      /* 居中对齐 */
+  background-repeat: no-repeat;
+  color: #f5f7ff;                   /* 文字改成浅色，以免被背景吃掉 */
+}
+
+/* 标题、正文等都跟随浅色 */
+#two.wrapper.style3 h2,
+#two.wrapper.style3 p {
+  color: inherit;
+}
