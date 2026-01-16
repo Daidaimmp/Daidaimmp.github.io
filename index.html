@@ -235,10 +235,54 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-		
+
+		<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const hero = document.querySelector('.research-hero');
+  const items = document.querySelectorAll('.project-item');
+  if (!hero || !items.length) return;
+
+  // 初始背景
+  const defaultBg = hero.getAttribute('data-default-bg');
+  if (defaultBg) {
+    hero.style.backgroundImage = "url('" + defaultBg + "')";
+  }
+
+  function setActive(item) {
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    const bg = item.getAttribute('data-bg');
+    if (bg) {
+      hero.style.backgroundImage = "url('" + bg + "')";
+    }
+  }
+
+  // 鼠标移入切换
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => setActive(item));
+  });
+
+  // 滚动时自动根据可见度切换（更“自动变换”的感觉）
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        setActive(item);
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.6
+  });
+
+  items.forEach(item => observer.observe(item));
+});
+</script>
+
 	</body>
 
 </html>
+
 
 
 
