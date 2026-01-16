@@ -291,7 +291,7 @@
 /* 这样无论中间有多少缝隙，背景都是连续的一张大图，不会断裂 */
 #wrapper {
     /* 图片路径 (请确认是 me.jpg 还是 bbgg.png) */
-    background-image: url("../../images/me.jpg") !important;
+    background-image: url("../../images/bbgg.png") !important;
     
     /* 视差核心 */
     background-attachment: fixed !important;
