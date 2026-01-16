@@ -199,29 +199,11 @@ Nonlinear Dynamics | Complex Systems | AI for Science
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
-<script>
-    // 监听滚动
-    window.addEventListener('scroll', function() {
-        var scrolled = window.scrollY; 
-        var speed = 0; // 视差速度
-        
-        // 【关键】现在的背景在 wrapper 上，所以我们只动 wrapper
-        var target = document.querySelector('#wrapper');
-        
-        if(target) {
-            // 计算位置 (负数代表向上移)
-            var newPos = -(scrolled * speed) + 'px';
-            
-            // 强制推动背景
-            target.style.setProperty('background-position', '50% ' + newPos, 'important');
-        }
-    });
-</script>
 		
 	</body>
 
 </html>
+
 
 
 
