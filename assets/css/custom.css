@@ -433,7 +433,7 @@
 /* 1. 核心设置：同时选中 Home 和 About Me */
 #intro, #two {
     /* --- 设置图片路径 (请确保文件名大小写正确) --- */
-    background-image: url("../../images/me.jpg") !important;
+    background-image: url("../../images/bbgg.png") !important;
 
     /* --- 【关键魔法】 --- */
     /* fixed = 把图片钉在浏览器窗口背景上，不随内容滚动 */
