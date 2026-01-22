@@ -513,3 +513,37 @@
   margin-bottom: 0 !important;
 }
 
+/* =========================
+   Research：整张卡片可点击（覆盖链接层）
+   ========================= */
+
+/* 让卡片成为定位容器，方便绝对定位链接层 */
+.research-list .project-item {
+  position: relative; /* 新增：关键 */
+}
+
+/* 覆盖整个卡片的透明链接层 */
+.research-list .project-item .card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 5;               /* 覆盖在内容之上 */
+  border: 0 !important;
+  text-decoration: none !important;
+  background: transparent;
+}
+
+/* 避免 Hyperspace 给 a 加下划线/底线 */
+.research-list .project-item .card-link:before,
+.research-list .project-item .card-link:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 键盘可访问性：Tab 聚焦时有明显高亮 */
+.research-list .project-item:has(.card-link:focus-visible) {
+  outline: 2px solid rgba(120, 180, 255, 0.9);
+  outline-offset: 4px;
+  border-radius: 18px;
+}
+
+
